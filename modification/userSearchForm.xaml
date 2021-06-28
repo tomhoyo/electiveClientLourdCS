@@ -1,0 +1,123 @@
+﻿<Page x:Class="ProjetElective.modification.userSearchForm"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetElective.modification"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="userSearchForm">
+
+    <Grid VerticalAlignment="Top">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid VerticalAlignment="Top" Margin="10, 10, 10, 10">
+            <Button Content="déconnection" Click="loginPage"  Height="20" Width="100" HorizontalAlignment="Right"/>
+        </Grid>
+        <!-- deconnection -->
+
+        <Grid Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="10,10,10,10">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Role :"/>
+                <ComboBox Grid.Row="1" Height="20" Name="roleComboBox">
+                    <ComboBoxItem Name="radioButtonCustomer" Content="Client" IsSelected="True"/>
+                    <ComboBoxItem Name="radioButtonRestaurant" Content="Restaurant"/>
+                    <ComboBoxItem Name="radioButtonDeliveryman" Content="Livreur"/>
+                    <ComboBoxItem Name="radioButtonSaleperson" Content="Commercial"/>
+                    <ComboBoxItem Name="radioButtonDeveloper"  Content="Technicien"/>
+                </ComboBox>
+            </Grid>
+            <!-- Role ComboBox -->
+
+            <Grid Grid.Column="1" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="n° identifiant :"/>
+                <TextBox Grid.Row="1" Height="20" Name="idTextBox" />
+            </Grid>
+            <!-- id -->
+
+            <Grid Grid.Column="2" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Adresse email :"/>
+                <TextBox Grid.Row="1" Height="20" Name="emailTextBox" />
+            </Grid>
+            <!-- Email -->
+
+            <Grid Grid.Column="3" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Nom du restaurant :"/>
+                <TextBox Grid.Row="1" Height="20" Name="NameTextBox" />
+            </Grid>
+            <!-- Nom du restaurant -->
+
+            <Grid Grid.Column="4" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Prénom :"/>
+                <TextBox Grid.Row="1" Height="20" Name="firstnameTextBox" />
+            </Grid>
+            <!-- Prénom -->
+
+            <Grid Grid.Column="5" Width="150">
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Label Grid.Row="0" Content="Nom :"/>
+                <TextBox Grid.Row="1" Height="20" Name="lastnameTextBox" />
+            </Grid>
+            <!-- Nom -->
+
+            <Button Grid.Column="6" Content="Recherche" Click="rechercheClick_ButtonAsync"/>
+
+        </Grid>
+        <!-- Formulaire -->
+
+        <DataGrid Name="LbxUserList" Grid.Row="2" AutoGenerateColumns="False" CanUserAddRows="False" VerticalAlignment="Top" Margin="10,10,10,-248" Height="284">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="n°" Binding="{Binding Path='id'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Path='email'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Nom du restaurant" Binding="{Binding Path='name'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Prénom" Binding="{Binding Path='firstname'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Nom" Binding="{Binding Path='lastname'}" IsReadOnly="True"/>
+                <DataGridTextColumn Header="Adresse" MaxWidth="200" Binding="{Binding Path='address'}" IsReadOnly="True"/>
+                <DataGridTemplateColumn Header="Action">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Name="editerButton" Content="Editer" Click="modifyUserButton_Click"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+    </Grid>
+</Page>
