@@ -1,0 +1,55 @@
+﻿<Page x:Class="ProjetElective.loginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjetElective"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="loginPage">
+
+    <Grid>
+        <ListBox VerticalAlignment="Center" HorizontalAlignment="Center">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+
+                <Label Grid.Row="0" Content="Login" FontWeight="Bold" HorizontalAlignment="Center" FontSize="22"/>
+
+                <Label Grid.Row="1" Content="email :"/>
+                <TextBox Grid.Row="2" Height="20" Width="150" Name="emailTextBox" Text="toc@tac.com"/>
+                
+                <Label Grid.Row="3" Content="mot de passe :"/>
+                <PasswordBox Grid.Row="4" Height="20" Width="150" x:Name="passwordTextBox" PasswordChar="*"/>
+                
+                <Grid Grid.Row="5">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <RadioButton GroupName="role" Name="radioButtonDev" Content="Technicien" Grid.Column="0"/>
+                    <RadioButton GroupName="role" Name="radioButtonFin" Content="Commercial" Grid.Column="1" IsChecked="True"/>
+                </Grid>
+
+                <Button Grid.Row="6" Content="Connection" Click="connectionButton_Click" Margin="10, 10, 10, 0"/>
+                <ListBox x:Name="LbxerrorMessage" Grid.Row="7" Width="170">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Grid >
+                                <Label Content="{Binding ContentMessage}" HorizontalContentAlignment="Center" Foreground="Red"/>
+                            </Grid>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
+        </ListBox>
+    </Grid>
+</Page>
