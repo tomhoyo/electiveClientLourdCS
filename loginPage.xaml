@@ -25,7 +25,7 @@
                 <Label Grid.Row="0" Content="Login" FontWeight="Bold" HorizontalAlignment="Center" FontSize="22"/>
 
                 <Label Grid.Row="1" Content="email :"/>
-                <TextBox Grid.Row="2" Height="20" Width="150" Name="emailTextBox" Text="toc@tac.com"/>
+                <TextBox Grid.Row="2" Height="20" Width="150" Name="emailTextBox"/>
                 
                 <Label Grid.Row="3" Content="mot de passe :"/>
                 <PasswordBox Grid.Row="4" Height="20" Width="150" x:Name="passwordTextBox" PasswordChar="*"/>
